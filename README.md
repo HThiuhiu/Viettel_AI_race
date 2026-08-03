@@ -22,7 +22,7 @@ khác với mặc định của Nerfstudio.
 train.sh                      Entry point: cài Nerfstudio → preprocess → patch → train → eval
 run_final.py                  Điều phối lần chạy cuối: check → train → chọn checkpoint → render → kiểm tra
 
-pipeline/                     Các bước bắt buộc của đường nộp bài
+pipeline/                              Các bước bắt buộc của đường nộp bài
   preprocess_colmap_to_nerfstudio.py   COLMAP → transforms.json (kèm ply_file_path + hệ số méo)
   dense_colmap_init.py                 (tuỳ chọn) dense MVS init thay cho sparse points
   generate_sky_masks.py                Sinh sky mask heuristic, không cần model/Internet
@@ -34,11 +34,10 @@ pipeline/                     Các bước bắt buộc của đường nộp b�
   check_gs_count.py                    Xác nhận STRATEGY thật + số Gaussian trong checkpoint
   compute_score.py                     Tính Score theo đúng công thức BTC
 
-patches/                      Vá trực tiếp file splatfacto.py đã cài (ns-train chạy subprocess
-                              riêng nên không monkeypatch trong bộ nhớ được)
+patches/                      
+                              
   patch_splatfacto_mip_filter.py       Mip-Splatting soft loss — chống needle artifact
   patch_splatfacto_perceptual_loss.py  LPIPS-as-loss theo lịch ramp (curriculum)
-  patch_splatfacto_frequency_loss.py   FreGS progressive frequency regularization
   patch_robust_transient_loss.py       Robust L1 kiểu RobustNeRF — bỏ qua pixel transient
 
 tools/                        Công cụ phụ trợ, không nằm trong đường nộp bài
